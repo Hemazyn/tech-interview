@@ -59,7 +59,7 @@ Generate tailored technical interview questions with AI based on role, field, ex
 ## 🔐 Environment Variables
 
 Create a `.env.local` file in the root and add:
-Replace `your_openrouter_api_key` with your actual OpenRouter API key.
+Replace `your_openrouter_api_key` with your actual [OpenRouter API key](https://openrouter.ai/).
 
 ## 🚀 Getting Started
 
