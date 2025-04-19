@@ -25,6 +25,7 @@ Generate tailored technical interview questions with AI based on role, field, ex
 ```
 └── 📁tech-interview
     └── 📁public
+        └── .DS_Store
         └── tip.png
     └── 📁src
         └── .DS_Store
@@ -35,12 +36,19 @@ Generate tailored technical interview questions with AI based on role, field, ex
                     └── route.js
             └── globals.css
             └── layout.js
-            └── page.js
+            └── page.jsx
             └── 📁questions
                 └── page.jsx
+                └── QuestionsPage.jsx
+        └── 📁assets
+            └── index.js
+            └── tip.png
         └── 📁components
             └── Form.jsx
+            └── Header.jsx
             └── index.js
+            └── Loading.jsx
+            └── ThemeSwitcher.jsx
         └── 📁utils
             └── fetchQuestions.js
     └── .DS_Store
