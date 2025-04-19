@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
-import QuestionsPage from '../../app/questions/QuestionsPage';
+import QuestionsPage from '@/app/questions/QuestionsPage';
+import { Loading } from '@/components';
 
 export default function Questions() {
      return (
-          <Suspense fallback={<div>Loading questions...</div>}>
+          <Suspense fallback={<Loading />}>
                <QuestionsPage />
           </Suspense>
      );

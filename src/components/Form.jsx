@@ -22,40 +22,50 @@ const Form = () => {
      };
 
      return (
-          <div className="max-w-lg p-6 mx-auto mt-10 bg-gray-200 rounded-lg shadow-md dark:bg-gray-800">
+          <div className="w-full p-6 mx-auto mt-10 border rounded-lg shadow-md md:w-3/5 lg:w-2/5">
                <h2 className="mb-4 text-xl font-semibold">Generate Interview Questions</h2>
                <form onSubmit={handleSubmit} className="space-y-4">
                     <input type="text" name="role" placeholder="Job Role (e.g., Frontend Developer)"
-                         value={formData.role} onChange={handleChange} className="w-full p-2 border rounded-md" />
-                    <select name="field" value={formData.field} onChange={handleChange} className="w-full p-2 border rounded-md">
-                         <option value="">Select Technical Field</option>
-                         <option value="frontend">Frontend</option>
-                         <option value="backend">Backend</option>
-                         <option value="fullstack">Full Stack</option>
-                         <option value="devops">DevOps</option>
-                         <option value="datascience">Data Science</option>
-                    </select>
-                    <select name="experience" value={formData.experience} onChange={handleChange} className="w-full p-2 border rounded-md">
-                         <option value="">Select Experience Level</option>
-                         <option value="junior">Junior</option>
-                         <option value="mid">Mid-Level</option>
-                         <option value="senior">Senior</option>
-                    </select>
-                    <select name="category" value={formData.category} onChange={handleChange} className="w-full p-2 border rounded-md">
-                         <option value="">All Categories</option>
-                         <option value="technical">Technical</option>
-                         <option value="behavioral">Behavioral</option>
-                         <option value="systemdesign">System Design</option>
-                         <option value="problemsolving">Problem Solving</option>
-                    </select>
-                    <select name="difficulty" value={formData.difficulty} onChange={handleChange} className="w-full p-2 border rounded-md">
-                         <option value="">All Difficulty Levels</option>
-                         <option value="easy">Easy</option>
-                         <option value="medium">Medium</option>
-                         <option value="hard">Hard</option>
-                    </select>
+                         value={formData.role} onChange={handleChange} className="w-full p-2 border rounded-md outline-0" />
+                    <div className="block gap-2 px-1 py-2 border rounded-md md:px-3">
+                         <select name="field" value={formData.field} onChange={handleChange} className="w-full text-sm border-0 outline-0 md:text-base">
+                              <option value="">Select Technical Field</option>
+                              <option value="frontend">Software Engineering & Development</option>
+                              <option value="backend">Data & Artificial Intelligence (AI)</option>
+                              <option value="fullstack">Cloud Computing & Infrastructure</option>
+                              <option value="devops">Cybersecurity</option>
+                              <option value="datascience">Quality Assurance & Testing</option>
+                              <option value="devops">IT & Technical Support</option>
+                              <option value="devops">Specialized & Emerging Technologies</option>
+                         </select>
+                    </div>
+                    <div className="block gap-2 px-1 py-2 border rounded-md md:px-3">
+                         <select name="experience" value={formData.experience} onChange={handleChange} className="w-full text-sm border-0 outline-0 md:text-base">
+                              <option value="">Select Experience Level</option>
+                              <option value="junior">Junior</option>
+                              <option value="mid">Mid-Level</option>
+                              <option value="senior">Senior</option>
+                         </select>
+                    </div>
+                    <div className="block gap-2 px-1 py-2 border rounded-md md:px-3">
+                         <select name="category" value={formData.category} onChange={handleChange} className="w-full text-sm border-0 outline-0 md:text-base">
+                              <option value="">All Categories</option>
+                              <option value="technical">Technical</option>
+                              <option value="behavioral">Behavioral</option>
+                              <option value="systemdesign">System Design</option>
+                              <option value="problemsolving">Problem Solving</option>
+                         </select>
+                    </div>
+                    <div className="block gap-2 px-1 py-2 border rounded-md md:px-3">
+                         <select name="difficulty" value={formData.difficulty} onChange={handleChange} className="w-full text-sm border-0 outline-0 md:text-base">
+                              <option value="">All Difficulty Levels</option>
+                              <option value="easy">Easy</option>
+                              <option value="medium">Medium</option>
+                              <option value="hard">Hard</option>
+                         </select>
+                    </div>
                     <input type="number" name="numQuestions" placeholder="Number of Questions"
-                         value={formData.numQuestions} onChange={handleChange} className="w-full p-2 border rounded-md" min="1" max="50" />
+                         value={formData.numQuestions} onChange={handleChange} className="w-full px-2 py-2 border rounded-md outline-0" min="1" max="50" />
                     <button type="submit" className="w-full p-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">
                          Generate Questions
                     </button>
