@@ -22,8 +22,8 @@ const Form = () => {
      };
 
      return (
-          <div className="w-full p-6 mx-auto mt-10 border rounded-lg shadow-md md:w-3/5 lg:w-2/5">
-               <h2 className="mb-4 text-xl font-semibold">Generate Interview Questions</h2>
+          <div className="w-full p-2 mx-auto mt-10 border rounded-lg shadow-md md:p-6 md:w-3/5 lg:w-2/5">
+               <h1 className="mb-2 text-2xl font-semibold text-center md:mb-5 lg:text-4xl">Generate Interview Questions</h1>
                <form onSubmit={handleSubmit} className="space-y-4">
                     <input type="text" name="role" placeholder="Job Role (e.g., Frontend Developer)"
                          value={formData.role} onChange={handleChange} className="w-full p-2 border rounded-md outline-0" />
@@ -42,6 +42,7 @@ const Form = () => {
                     <div className="block gap-2 px-1 py-2 border rounded-md md:px-3">
                          <select name="experience" value={formData.experience} onChange={handleChange} className="w-full text-sm border-0 outline-0 md:text-base">
                               <option value="">Select Experience Level</option>
+                              <option value="junior">Intern</option>
                               <option value="junior">Junior</option>
                               <option value="mid">Mid-Level</option>
                               <option value="senior">Senior</option>
@@ -65,7 +66,7 @@ const Form = () => {
                          </select>
                     </div>
                     <input type="number" name="numQuestions" placeholder="Number of Questions"
-                         value={formData.numQuestions} onChange={handleChange} className="w-full px-2 py-2 border rounded-md outline-0" min="1" max="50" />
+                         value={formData.numQuestions} onChange={handleChange} className="w-full px-3 py-2 border rounded-md outline-0" min="1" max="50" />
                     <button type="submit" className="w-full p-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">
                          Generate Questions
                     </button>

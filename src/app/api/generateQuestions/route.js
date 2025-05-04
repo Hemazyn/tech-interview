@@ -12,19 +12,20 @@ export async function GET(req) {
      const prompt = `You are an expert interviewer. Generate ${numQuestions} distinct ${experience}-level interview questions and answers for the role of "${role}" in the "${field}" domain. Each question should fall under the "${category}" category and be of "${difficulty}" difficulty. Respond ONLY in strict JSON format with this structure: {"questions": [{ "question": "Q1", "answer": "A1" },{ "question": "Q2", "answer": "A2" },...]}`.trim();
 
      try {
-          const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+          const completion = await fetch('https://openrouter.ai/api/v1/chat/completions', {
                method: 'POST',
                headers: {
                     'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                },
                body: JSON.stringify({
-                    model: 'gpt-3.5-turbo',
-                    messages: [{ role: 'user', content: prompt }],
-               }),
+                    model: "gpt-3.5-turbo", // or another model
+                    messages: [{ role: "user", content: prompt }],
+                    temperature: 0.7
+               })
           });
 
-          const data = await response.json();
+          const data = await completion.json();
 
           if (!data || !data.choices || data.choices.length === 0) {
                return new Response(JSON.stringify({ error: 'No questions generated' }), { status: 500 });
