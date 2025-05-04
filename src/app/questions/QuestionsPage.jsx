@@ -3,8 +3,8 @@ import { useSearchParams } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { generateQuestions } from '@/app/api/generateQuestions/route';
 import { fetchQuestions } from '@/utils/fetchQuestions';
-import { FiClock, FiBookmark, FiCheckSquare, FiEdit3, FiThumbsUp, FiThumbsDown, } from "react-icons/fi";
 import { Loading, Header } from "@/components";
+import { FiClock, FiBookmark, FiCheckSquare, FiEdit3, FiThumbsUp, FiThumbsDown, } from "react-icons/fi";
 
 const QuestionsPage = () => {
      const searchParams = useSearchParams();
@@ -45,12 +45,11 @@ const QuestionsPage = () => {
                     const generated = await fetchQuestions({ role, field, experience, category, difficulty, numQuestions });
                     const parsed = typeof generated === "string" ? JSON.parse(generated) : generated;
 
-                    console.log(parsed.questions);
+                    // console.log(parsed.questions);
 
                     if (parsed?.questions && Array.isArray(parsed.questions)) {
-                         console.log("Fetched questions:", parsed.questions);
+                         // console.log("Fetched questions:", parsed.questions);
                          setQuestions(parsed.questions);
-
                     } else {
                          console.warn("No valid questions array in the response.");
                          setQuestions([]);
@@ -174,7 +173,7 @@ const QuestionsPage = () => {
           <>
                <Header />
                <div className="w-full h-full px-5 pt-24 pb-10 mx-auto">
-                    <div className="max-w-4xl p-4 mx-auto border rounded-lg shadow-md sm:p-6">
+                    <div className="max-w-4xl p-4 mx-auto border rounded-lg shadow-md text sm:p-6">
                          <div className="z-50 flex flex-col h-full p-3 mb-4 border rounded-md sm:flex-row sm:items-center sm:justify-between">
                               <h1 className="mb-2 text-lg font-bold sm:text-xl sm:mb-0">Generated Questions</h1>
                               <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -196,7 +195,6 @@ const QuestionsPage = () => {
                                    <span className="px-2 py-1 font-medium text-gray-600 bg-gray-100 rounded">Score: {totalScore}/{questions.length}</span>
                               </div>
                          </div>
-
                          {/* Timer  */}
                          <div className="flex flex-col items-start justify-between gap-2 mb-6 text-sm sm:flex-row sm:items-center sm:gap-0">
                               <div className="flex items-center gap-2">
@@ -211,11 +209,9 @@ const QuestionsPage = () => {
                                    <button onClick={resetTimer} className="px-3 py-1 text-white bg-gray-500 rounded hover:bg-gray-600">Reset</button>
                               </div>
                          </div>
-
                          {/* Questions */}
                          {isLoading ? (
                               <Loading />
-                              // <div className="py-10 text-center text-blue-500 animate-pulse">Loading questions...</div>
                          ) : error ? (
                               <div className="p-4 text-red-700 border border-red-200 rounded bg-red-50">
                                    <p className="font-medium">Error:</p>
@@ -226,7 +222,7 @@ const QuestionsPage = () => {
                                    {Array.isArray(questions) && questions.length > 0 ? (
                                         questions.map((q, index) => (
                                              <div key={q.id || index} className={`border rounded-md ${markedForReview[index] ? "border-yellow-300 ring-2 ring-yellow-100" : "border-gray-200"}`}>
-                                                  <div className="p-4 bg-gray-50">
+                                                  <div className="p-4 bg-gray-200">
                                                        <div className="flex items-start justify-between">
                                                             <div className="flex flex-wrap gap-2 text-xs font-medium">
                                                                  {q.category && (
@@ -265,7 +261,7 @@ const QuestionsPage = () => {
                                                        </div>
                                                   )}
 
-                                                  <div className="p-4 border-t border-gray-200 bg-gray-50">
+                                                  <div className="p-4 bg-gray-200 border-t border-gray-200">
                                                        <div className="flex items-center mb-2 text-sm text-gray-500">
                                                             <FiEdit3 className="mr-1" /> Your Notes:
                                                        </div>
@@ -289,7 +285,6 @@ const QuestionsPage = () => {
                     </div>
                </div>
           </>
-
      );
 };
 
